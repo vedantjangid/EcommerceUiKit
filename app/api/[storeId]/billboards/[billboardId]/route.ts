@@ -6,6 +6,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(req:Request,
     {params}:{params: {billboardId: string}}) {
+        console.log('activated log')
     try {
         if(!params.billboardId){
             return new NextResponse('Billboard ID is required', {status: 400})
@@ -16,6 +17,7 @@ export async function GET(req:Request,
                 id: params.billboardId,
             }
         })
+        
         return NextResponse.json(billboard)
     } catch (error) {
         console.log('[BILLBOARD-GET', error)
