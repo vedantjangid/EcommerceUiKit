@@ -1,35 +1,21 @@
-"use client"
-import { Modal } from "@/components/ui/modal";
-import { useStoreModal } from "@/hooks/use-store-modal";
-import { UserButton } from "@clerk/nextjs";
+"use client";
+
 import { useEffect } from "react";
+import { useParams } from "next/navigation";
 
-export default function SetupPage() {
-    const onOpen = useStoreModal((state) => state.onOpen)
-    const isOpen = useStoreModal((state) => state.isOpen)
+import { useStoreModal } from "@/hooks/use-store-modal";
 
-    useEffect(() => {
-        if (!isOpen) {
-            onOpen()
-        }
-    }, [isOpen, onOpen])
+const SetupPage = () => {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
 
-    return (
-        null
-    )
-}
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen();
+    }
+  }, [isOpen, onOpen]);
 
-// const SetupPage = () => {
-//     return (
-//         <div className="p-4">
-
-//           
-//         </div>
-//     )
-// }
-
-// export default SetupPage;
-
-
-
-
+  return null;
+};
+ 
+export default SetupPage;
